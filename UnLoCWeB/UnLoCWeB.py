@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import pymc3 as pm
 import numpy as np
 import pandas as pd
-import arviz as az
 import seaborn as sns
 import math as m
 from scipy.stats import weibull_min
