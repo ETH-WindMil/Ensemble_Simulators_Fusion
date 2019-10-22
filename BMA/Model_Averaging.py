@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import arviz as az
 
-d = pd.read_csv('./Data/milk.csv')
+d = pd.read_csv('../Data/milk.csv')
 d.iloc[:,1:] = d.iloc[:,1:] - d.iloc[:,1:].mean()
 d.head()
 print(d)
@@ -30,7 +30,7 @@ with pm.Model() as model_0:
     mu = alpha + beta * d['neocortex']
 
     kcal = pm.Normal('kcal', mu=mu, sigma=sigma, observed=d['kcal.per.g'])
-    trace_0 = pm.sample(5000, nuts_kwargs={'target_accept': 0.9}, tune=1000)
+    trace_0 = pm.sample(1000, nuts_kwargs={'target_accept': 0.9}, tune=1000)
 
 # Model 1
 with pm.Model() as model_1:
@@ -41,7 +41,7 @@ with pm.Model() as model_1:
     mu = alpha + beta * d['log_mass']
 
     kcal = pm.Normal('kcal', mu=mu, sigma=sigma, observed=d['kcal.per.g'])
-    trace_1 = pm.sample(5000, nuts_kwargs={'target_accept': 0.9}, tune=1000)
+    trace_1 = pm.sample(1000, nuts_kwargs={'target_accept': 0.9}, tune=1000)
 
 # Model 2
 with pm.Model() as model_2:
@@ -53,7 +53,7 @@ with pm.Model() as model_2:
 
     kcal = pm.Normal('kcal', mu=mu, sigma=sigma, observed=d['kcal.per.g'])
     # trace_2 = pm.sample(10000, nuts_kwargs={'target_accept': 0.9}, tune=1000)
-    trace_2 = pm.sample(5000, nuts_kwargs={'target_accept': 0.9}, tune=1000)
+    trace_2 = pm.sample(1000, nuts_kwargs={'target_accept': 0.9}, tune=1000)
 
 print(trace_0)
 

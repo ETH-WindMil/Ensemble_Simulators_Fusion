@@ -6,8 +6,6 @@ import seaborn as sns
 import math as m
 from scipy.stats import weibull_min
 
-# plt.style.use('ggplot')
-# plt.style.use(['seaborn-darkgrid'])
 
 # Always good to set a seed for reproducibility
 SEED = 222
